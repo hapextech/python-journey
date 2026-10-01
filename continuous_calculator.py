@@ -26,5 +26,27 @@ def simple_calculator(num1, operator, num2):
             return num1 / num2
     else:
         "Invalid operator"
-print(simple_calculator(1, "/", 0))
+# print(simple_calculator(1, "/", 0))
 
+result = 0.0
+prev_num = [0.0]
+
+while True:
+    user_input = input("Input: ").strip()
+    if len(prev_num) > 1 and user_input == "undo".lower():
+        prev_num.pop()
+        print(prev_num[-1])
+        continue
+
+    try:
+        operator, num = user_input.split()
+        result =  simple_calculator(result, operator, float(num))
+        print("result: ", result)
+
+        if isinstance(result, float):
+            prev_num.append(result)
+        else:
+            result = prev_num[-1]
+    except: 
+        print("Wrong input format. (eg: + 4)")
+        continue
