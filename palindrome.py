@@ -12,7 +12,18 @@
 # Do not import libraries
 
 def palindrome(user_input):
-    punctuation = (" ,?!")
-    for i, x in enumerate(user_input):
-        left_pointer = user_input[-1]
-        right_pointer = user_input[0]
+    left_pointer = user_input[-1]
+    right_pointer = user_input[0]
+
+    while left_pointer < right_pointer:
+        if right_pointer == left_pointer:
+            # ispalindrome = True
+            left_pointer += 1
+            right_pointer -= 1
+            return "input is a palindrome"
+        else:
+            return "input not a palindrome"
+            
+    
+
+print(palindrome("Was it a car or a cat I saw?"))
