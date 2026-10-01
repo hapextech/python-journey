@@ -12,18 +12,21 @@
 # Do not import libraries
 
 def palindrome(user_input):
-    left_pointer = user_input[-1]
-    right_pointer = user_input[0]
+    user_input = "".join(x for x in user_input if x.isalnum())
+    user_input = user_input.lower()
+    # print(user_input)
+    left_pointer = 0
+    right_pointer = len(user_input) - 1
 
     while left_pointer < right_pointer:
-        if right_pointer == left_pointer:
+        if user_input[left_pointer] != user_input[right_pointer]:
+            return "input not a palindrome"
+        else:
             # ispalindrome = True
             left_pointer += 1
             right_pointer -= 1
-            return "input is a palindrome"
-        else:
-            return "input not a palindrome"
+        return "input is a palindrome"
+        
             
-    
-
-print(palindrome("Was it a car or a cat I saw?"))
+        
+print(palindrome("Hello, World!"))
