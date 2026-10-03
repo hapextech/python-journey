@@ -32,8 +32,8 @@ result = 0.0
 prev_num = [0.0]
 
 while True:
-    user_input = input("Input: ").strip()
-    if len(prev_num) > 1 and user_input == "undo".lower():
+    user_input = input("Input: ").strip().lower()
+    if len(prev_num) > 1 and user_input == "undo":
         prev_num.pop()
         print(prev_num[-1])
         continue
